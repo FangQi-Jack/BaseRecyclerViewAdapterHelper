@@ -16,7 +16,7 @@
 ## Google Play Demo
 
 [![Get it on Google Play](https://developer.android.com/images/brand/en_generic_rgb_wo_60.png)](https://play.google.com/store/apps/details?id=com.chad.baserecyclerviewadapterhelper)
-#它能做什么？（[下载 apk](https://github.com/CymChad/BaseRecyclerViewAdapterHelper/raw/master/demo_res/demo.apk)）
+# 它能做什么？（[下载 apk](https://github.com/CymChad/BaseRecyclerViewAdapterHelper/raw/master/demo_res/demo.apk)）
 - **优化Adapter代码（减少百分之70%代码）**
 - **添加点击item点击、长按事件、以及item子控件的点击事件**
 - **添加加载动画（一行代码轻松切换5种默认动画）**
@@ -27,9 +27,9 @@
 - **设置空布局（比Listview的setEmptyView还要好用！）**
 - **添加拖拽item**
 
-#扩展库
+# 扩展库
 [PinnedSectionItemDecoration](https://github.com/oubowu/PinnedSectionItemDecoration)
-#如何使用它？
+# 如何使用它？
 先在 build.gradle 的 repositories 添加:
 ```
 	allprojects {
@@ -42,11 +42,12 @@
 然后在dependencies添加:
 ```
 	dependencies {
-	        compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:v1.9.7'
+	        compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.46'
 	}
 ```
+## [androidX 迁移库版本](https://github.com/CymChad/BaseRecyclerViewAdapterHelper/releases/tag/2.9.45-androidx)
 
-#如何使用它来创建Adapter？
+# 如何使用它来创建Adapter？
 ![demo](https://github.com/CymChad/BaseRecyclerViewAdapterHelper/blob/master/demo_res/item_view.png)
 ```java
 public class QuickAdapter extends BaseQuickAdapter<Status> {
@@ -77,8 +78,8 @@ mRecyclerView.addOnItemTouchListener(new OnItemClickListener( ){
         });
         
 ```
-#设置 item  click  新增添加子布局多个控件的点击事件
-#设置 it item child click
+# 设置 item  click  新增添加子布局多个控件的点击事件
+# 设置 it item child click
 首先需要添加需要点击触发的 childview id 
 ``` 
  @Override
@@ -104,7 +105,7 @@ Activity
             }
         });
 ```
-#设置 it item long click
+# 设置 it item long click
 ```java
  mRecyclerView.addOnItemTouchListener(new OnItemLongClickListener( ) {
             @Override
@@ -114,7 +115,7 @@ Activity
             }
         });
 ```
-#设置 it item child long click
+# 设置 it item child long click
 首先需要添加需要点击触发的 childview id 
 ``` 
  @Override
@@ -165,7 +166,7 @@ Activity
 ``` 
 
 
-#如何使用它添加动画？
+# 如何使用它添加动画？
 ![demo](https://github.com/CymChad/BaseRecyclerViewAdapterHelper/blob/master/demo_res/animation.gif)
 ```java
 // 一行代码搞定（默认为渐显效果）
@@ -189,7 +190,7 @@ quickAdapter.openLoadAnimation(new BaseAnimation() {
                             }
                         });
 ```
-#使用它添加头部添加尾部
+# 使用它添加头部添加尾部
 ![demo](https://github.com/CymChad/BaseRecyclerViewAdapterHelper/blob/master/demo_res/header_footer.gif)
 ```java
 // add
@@ -202,7 +203,7 @@ removeFooterView(getView);
 removeAllHeaderView();
 removeAllFooterView();
 ```
-#使用它加载更多
+# 使用它加载更多
 ![demo](https://github.com/CymChad/BaseRecyclerViewAdapterHelper/blob/master/demo_res/load_more.gif)
 ```java
 mQuickAdapter.openLoadMore(PAGE_SIZE, true);
@@ -224,11 +225,11 @@ mQuickAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener
             }
         });
 ```
-#设置自定义加载更多布局
+# 设置自定义加载更多布局
 ```java
 mQuickAdapter.setLoadingView(customView);
 ```
-#使用分组
+# 使用分组
 ![demo](https://github.com/CymChad/BaseRecyclerViewAdapterHelper/blob/master/demo_res/section_headers.gif)
 ```java
 public class SectionAdapter extends BaseSectionQuickAdapter<MySection> {
@@ -251,7 +252,7 @@ public class SectionAdapter extends BaseSectionQuickAdapter<MySection> {
         });
     }
 ```
-#如何添加多种类型item？
+# 如何添加多种类型item？
 ![demo](https://github.com/CymChad/BaseRecyclerViewAdapterHelper/blob/master/demo_res/multiple_item.gif)
 ```java
 public class MultipleItemQuickAdapter extends BaseMultiItemQuickAdapter<MultipleItem> {
@@ -271,17 +272,19 @@ public class MultipleItemQuickAdapter extends BaseMultiItemQuickAdapter<Multiple
             case MultipleItem.IMG:
                 helper.setImageUrl(R.id.iv, item.getContent());
                 break;
+            default:
+                    break;
         }
     }
 
 }
 ```
-#使用setEmptyView
+# 使用setEmptyView
 ![demo](https://github.com/CymChad/BaseRecyclerViewAdapterHelper/blob/master/demo_res/empty_view.gif)
 ```java
 mQuickAdapter.setEmptyView(getView());
 ```
-#使用拖拽与滑动删除
+# 使用拖拽与滑动删除
 ![demo](https://github.com/CymChad/BaseRecyclerViewAdapterHelper/blob/master/demo_res/drag_item.gif)
 ```java
 OnItemDragListener onItemDragListener = new OnItemDragListener() {
@@ -328,7 +331,7 @@ mAdapter.enableSwipeItem();
 mAdapter.setOnItemSwipeListener(onItemSwipeListener);
 ```
 
-#Expandable Item
+# Expandable Item
 ![demo](https://github.com/CymChad/BaseRecyclerViewAdapterHelper/blob/master/demo_res/expandable_item.gif)
 ```Java
 // 如果不想使用继承，可以只实现IExpandable接口
@@ -351,7 +354,7 @@ public class ExpandableItemAdapter extends BaseMultiItemQuickAdapter<MultiItemEn
     protected void convert(final BaseViewHolder holder, final MultiItemEntity item) {
         switch (holder.getItemViewType()) {
         case TYPE_LEVEL_0:
-            ....
+            
             //set view content
            holder.itemView.setOnClickListener(new View.OnClickListener() {
                @Override
@@ -370,6 +373,8 @@ public class ExpandableItemAdapter extends BaseMultiItemQuickAdapter<MultiItemEn
         case TYPE_PERSON:
            //just set the content
            break;
+       default:
+               break;
     }
 }
 ```
@@ -414,5 +419,5 @@ protected K createBaseViewHolder(View view) {
 
 >**持续更新!，所以推荐Star项目**
 
-#感谢
+# 感谢
 [JoanZapata / base-adapter-helper](https://github.com/JoanZapata/base-adapter-helper)
